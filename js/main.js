@@ -82,9 +82,8 @@ function handleClick(event) {
   event.preventDefault();
     battle ();
     games++;
-    console.log(userPoints+'points user');
-    console.log(sauronPoints+'points sauron');
-    
+    userScore ();
+    sauronScore ();
 }
     
 //funcion evento
@@ -97,9 +96,9 @@ let sauronPoints = 0;
 
 
 function userScore () {
-  userElement.innerHTML = `Puntos del bien ${userPoints}`;
+  userElement.innerHTML = userPoints;
 }
 function sauronScore () {
-  computerElement.innerHTML = `Puntos de Sauron ${sauronPoints}`;
+  computerElement.innerHTML = sauronPoints;
 }
 
