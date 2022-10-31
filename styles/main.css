@@ -1,0 +1,69 @@
+.main {
+    height:100vh;
+    background-color: salmon;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+.game {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:30px;
+}
+.juego {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 500;
+}
+.MainTitle {
+    font-size: 50px;
+    text-transform: uppercase;
+    color:darkred;
+    font-weight: 800;
+}
+.textIntro {
+    font-size: 25px;
+    line-height: 40px;
+
+}
+.textGame {
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 600;
+
+}
+.select {
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+}
+.btnBattle{
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+    background-color: darkred;
+    color:white;
+    border-radius: 10px;
+    border:none;
+}
+.result {
+    font-size: 35px;
+    width: 605px;
+    height: 50px;
+    font-weight: 400;
+    background-color:rosybrown;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.points {
+    gap: 20px;
+    display:flex;
+}

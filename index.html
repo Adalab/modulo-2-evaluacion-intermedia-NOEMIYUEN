@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main">
+      <section class="game">
+        <h2 class="juego">juego</h2>
+        <h1 class="MainTitle">Los Anillos del poder</h1>
+        <p class="textIntro">
+          La tierra Media está en guerra! en ella lucharán razas leales a Sauron
+          contra otras bondadosas que no quieren que el mal reine sobre sus
+          tierras.
+        </p>
+        <p class="textGame">
+          Eres un jugador del ejercito del bien, no olvides tu misión de ganar
+          la batalla.
+        </p>
+        <form class="form" action="" method="post">
+          <select class="js-select select" id="game">
+            <option value="Pelosos">Pelosos</option>
+            <option value="Sureños">Sureños</option>
+            <option value="Enanos">Enanos</option>
+            <option value="Númenóreanos">Númenóreanos</option>
+            <option value="Elfos">Elfos</option>
+          </select>
+          <button class="js-btnBattle btnBattle">Batalla</button>
+        </form>
+        <span class="js-result result">¡Comienza la batalla!</span>
+      </section>
+      <section class="points">
+        <span class="user">Punto del Bien</span>
+        <span class="computer">Puntos de Sauron</span>
+      </section>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
