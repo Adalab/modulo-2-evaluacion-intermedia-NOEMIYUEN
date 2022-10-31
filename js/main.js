@@ -84,6 +84,7 @@ function handleClick(event) {
     games++;
     userScore ();
     sauronScore ();
+    End ();
 }
     
 //funcion evento
@@ -102,3 +103,9 @@ function sauronScore () {
   computerElement.innerHTML = sauronPoints;
 }
 
+function End () {
+
+  if (games >= 10) {
+    renderResult ('End')
+  }
+}
