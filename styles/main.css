@@ -52,8 +52,9 @@
 }
 .result {
     font-size: 35px;
-    width: 605px;
-    height: 50px;
+    line-height: 50px;;
+    /* width: 605px;
+    height: 50px; */
     font-weight: 400;
     background-color:rosybrown;
     color: white;
