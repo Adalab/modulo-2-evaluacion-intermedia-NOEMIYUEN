@@ -106,6 +106,6 @@ function sauronScore () {
 function End () {
 
   if (games >= 10) {
-    renderResult ('End')
+    renderResult ('Fin del juego')
   }
 }
