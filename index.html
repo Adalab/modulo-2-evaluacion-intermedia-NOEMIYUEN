@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./styles/main.css" />
     <title>Ejercicio Noemí modulo:2</title>
   </head>
@@ -20,16 +24,16 @@
       src="./images/sñrAnillos.png"
       alt="Señor de los Anillos"
     />
-    <main class="main">
+    <main class="js-main main">
       <section class="game">
         <h2 class="juego">el juego comienza</h2>
-        <h1 class="MainTitle">Los Anillos del poder</h1>
+        <h1 class="js-mainTitle mainTitle">Los Anillos del poder</h1>
         <p class="textIntro">
           La tierra Media está en guerra! en ella lucharán razas leales a Sauron
           contra otras bondadosas que no quieren que el mal reine sobre sus
           tierras.
         </p>
-        <p class="textGame">
+        <p class="js-textGame textGame">
           Eres un jugador del ejercito del bien, no olvides tu misión de ganar
           la batalla.
         </p>
@@ -43,15 +47,19 @@
             <option value="5">Elfos</option>
           </select>
           <button class="js-btnBattle btnBattle">Batalla</button>
+          <button class="js-btnReset btnReset hide">¿Echamos otra?</button>
         </form>
+
         <span class="js-result result">¡Comienza la batalla!</span>
       </section>
       <section class="points">
-        <span class="js-user2 user">Punto del Bien</span>
-        <span class="js-user user"></span>
-        <span class="js-computer2 computer">Puntos de Sauron</span>
-        <span class="js-computer computer"></span>
+        <span class="js-user2 user scoreText">Punto del Bien:</span>
+        <span class="js-user user score"></span>
+        <span class="js-computer2 computer scoreText">Puntos de Sauron:</span>
+        <span class="js-computer computer score"></span>
       </section>
+      <img class="js-ring ring" src="./images/anillo.png" alt="anillos" />
+      <span class="js-end end"></span>
     </main>
     <script src="./js/main.js"></script>
   </body>

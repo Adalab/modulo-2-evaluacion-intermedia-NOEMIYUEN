@@ -20,8 +20,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     gap:30px;
     color: white
+}
+.mainFail {
+    /*color | image | repeat | attachment | position x y*/
+    background: black url(../images/fire.jpg) no-repeat scroll center;
+    background-origin: content-box;
+    background-size: cover;
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:30px;
+    color: white;
+}
+.mainWin {
+    /*color | image | repeat | attachment | position x y*/
+    background: darkgoldenrod url(../images/winner.jpeg) no-repeat  center;
+    background-origin: content-box;
+    background-size:contain ;
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:30px;
+    color: white;
 }
 .game {
     display:flex;
@@ -33,13 +62,13 @@
     position: absolute;
     top:20px;
     color:white;
-    left:40px;
+    left: 10px;
     text-transform: uppercase;
     font-size: 25px;
     font-weight: 800;
     text-shadow: 3px 2px darkred;
 }
-.MainTitle {
+.mainTitle {
     margin-top: 15px;
     font-size: 50px;
     text-transform: capitalize;
@@ -47,10 +76,19 @@
     color:goldenrod;
     font-weight: 800;
 }
+.mainTitleWin {
+    margin-top: 15px;
+    font-size: 50px;
+    text-transform: capitalize;
+    font-family: 'Italianno', cursive;
+    color:black;
+    font-weight: 800;
+}
 .textIntro {
     font-size: 30px;
     line-height: 40px;
     font-family: 'Italianno', cursive;
+    
 }
 
 .textGame {
@@ -78,14 +116,25 @@
     border-radius: 10px;
     border:none;
 }
+.btnReset{
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+    font-weight: 600;
+    background-color: white;
+    color:darkred;
+    border-radius: 10px;
+    border:none;
+}
 .result {
     font-size: 35px;
     line-height: 50px;;
     /* width: 605px;
     height: 50px; */
-    font-weight: 400;
+    font-weight: 600;
     background-color:rosybrown;
-    color: white;
+    color:darkred;
+    font-family: 'Italianno', cursive;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -93,12 +142,51 @@
     border-radius: 10px;
 }
 .points {
-    gap: 20px;
+    gap: 10px;
     display:flex;
+    margin-top: 20px;;
 }
 .form  {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:10px;
+}
+.scoreText {
+    margin-bottom: 10px;
+    color:gold;
+    font-weight: 600px;
+}
+.hide {
+    display:none;
+}
+.ring {
+    width: 70px;
+    position:relative;
+    top: -130px;
+    animation:rotateIn;
+    animation-duration: 5s;
+    animation-iteration-count:1;
+}
+.ring2 {
+    width: 70px;
+    position:relative;
+    top: -130px;
+    animation:rotateOut;
+    animation-duration: 3s;
+    animation-iteration-count:1;
+}
+.end {
+    position:relative;
+    top: -130px;
+    font-size: 60px;
+    font-family: 'Italianno', cursive;
+    color:white;
+    text-shadow: 5px 5px black;
+    animation:fadeIn;
+    animation-duration: 5s;
+    animation-iteration-count:1;
+}
+.transparent {
+    color:transparent;
 }
