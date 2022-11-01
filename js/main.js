@@ -112,6 +112,15 @@ function sauronScore (scorePc) {
   computerElement.innerHTML = scorePc;
 }
 
+//función para no contar si no se elije jugador
+
+function dontCount (battle){
+  if (parseInt(selectElement.value)===0) {
+    games--;
+    render (sauronChooseElement, 'Selecciona raza');
+  }
+}
+
 //función manejadora
 
 function handleClick(event) {
@@ -121,6 +130,7 @@ function handleClick(event) {
     userScore (userPoints);
     sauronScore (sauronPoints);
     sauronElection ();
+    dontCount ();
     End ();
 }
     
