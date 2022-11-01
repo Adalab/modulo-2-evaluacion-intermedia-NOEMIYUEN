@@ -10,7 +10,9 @@ const mainElement  = document.querySelector ('.js-main');
 const endTextElement = document.querySelector('.js-end');
 const mainTitleElement = document.querySelector('.js-mainTitle');
 const ringElement = document.querySelector ('.js-ring');
-const textGameElement =document.querySelector('.js-textGame');
+const textGameElement = document.querySelector('.js-textGame');
+const sauronChooseElement = document.querySelector ('.js-sauronChoose');
+
 
 const lose  = '¡Ha ganado el Ejército del Mal! Vuelve a Intentarlo!';
 const win = '¡Ha ganado el Ejército del Bien! Enhorabuena!';
@@ -26,10 +28,11 @@ function renderResult (resultText) {
   resultElement.innerHTML=resultText;
 }
 
+let random=0;
 //función batalla
 function battle () {
     const selectUser = selectElement.value;
-    const random = getRandomNumber(5);
+    random = getRandomNumber(5);
     console.log (random);
     if (parseInt(selectElement.value)===1) {
       renderResult(lose);
@@ -78,8 +81,21 @@ function battle () {
 } 
 
 
+//saurons election
 
-
+function sauronElection (){
+  if (random === 1) {
+    sauronChooseElement.innerHTML = `Sauron elige: Sureños malos`;
+  } else if (random === 2) {
+    sauronChooseElement.innerHTML = `Sauron elige: Orcos`;
+  } else if (random === 3) {
+    sauronChooseElement.innerHTML = `Sauron elige: Goblins`;
+  } else if (random === 4) {
+    sauronChooseElement.innerHTML = `Sauron elige: Huargos`;
+  } else {
+    sauronChooseElement.innerHTML = `Sauron elige: Trolls`;
+  } 
+}
 
 //función manejadora
 
@@ -89,6 +105,7 @@ function handleClick(event) {
     games++;
     userScore (userPoints);
     sauronScore (sauronPoints);
+    sauronElection ();
     End ();
 }
     
@@ -115,6 +132,7 @@ function End ( ) {
     renderResult ('Fin del juego')
     btnResetElement.classList.remove('hide');
     btnElement.classList.add('hide');
+    sauronChooseElement.innerHTML = '';
     console.log ('fin');
     if (userPoints<sauronPoints){
       mainElement.classList.remove ('main');
