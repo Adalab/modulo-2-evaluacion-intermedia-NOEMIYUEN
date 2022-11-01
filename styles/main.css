@@ -1,12 +1,27 @@
+.body {
+    display:flex;
+    background-color: black;
+    height: 100vh;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center;
+    justify-items: center; */
+}
+
+.lordRingsImg {
+    width: 300px;
+    display: inline-block;
+}
 .main {
-    height:100vh;
-    background-color: salmon;
-    padding: 20px;
+    background-color: rgb(53, 52, 52);
+    padding: 5px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap:30px;
+    color: white
 }
 .game {
     display:flex;
@@ -15,31 +30,44 @@
     gap:30px;
 }
 .juego {
+    position: absolute;
+    top:20px;
+    color:white;
+    left:40px;
     text-transform: uppercase;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 800;
+    text-shadow: 3px 2px darkred;
 }
 .MainTitle {
+    margin-top: 15px;
     font-size: 50px;
-    text-transform: uppercase;
-    color:darkred;
+    text-transform: capitalize;
+    font-family: 'Italianno', cursive;
+    color:goldenrod;
     font-weight: 800;
 }
 .textIntro {
-    font-size: 25px;
+    font-size: 30px;
     line-height: 40px;
-
+    font-family: 'Italianno', cursive;
 }
+
 .textGame {
     font-size: 25px;
     line-height: 40px;
-    font-weight: 600;
+    font-weight: 400;
+    text-align: center;
+   
 
 }
 .select {
     font-size: 20px;
     width: 300px;
     height: 40px;
+    background-color: gray;
+    color: white;
+    text-align: center;
 }
 .btnBattle{
     font-size: 20px;
@@ -67,4 +95,10 @@
 .points {
     gap: 20px;
     display:flex;
+}
+.form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
 }
