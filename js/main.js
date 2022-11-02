@@ -88,7 +88,7 @@ function handleClick(event) {
     render(computerElement,sauronPoints);
     displaySauronElection (random);
     dontCount ();
-    End ();
+    end ();
     };
     
 //función evento
@@ -123,7 +123,7 @@ function displayWin() {
   render ( endTextElement, '¡Victoria! Sauron se retira.')
   };
 
-function End ( ) {
+function end ( ) {
   if (games >= 10) {
     render(resultElement, 'Fin del juego');
     removeClass (btnResetElement,'hide')
