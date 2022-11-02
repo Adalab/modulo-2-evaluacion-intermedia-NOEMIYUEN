@@ -22,117 +22,74 @@ let random=0;
 let games = 0;
 let userPoints = 0;
 let sauronPoints = 0;
+let evelStrength = 0;
+
+//Objeto equipo Sauron
+const saruonTeam = {
+    race: ['Sureño Malo','Orcos','Goblins','Huargos', 'Trolls'],
+    strenght: [2,2,2,3,5]
+  };
 
 
 //función nºaleatorio, redondea hacia arriba (parte de 1)
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
-    }
+    };
 
-//Incluir texto
-
+//función incluir texto
 function render (element1, resultText) {
   element1. innerHTML = resultText;
-}
-/* function renderResult (resultText) {
-  resultElement.innerHTML=resultText;
-}
- */
+  };
+
+//función asociar fuerza a numero random
+function associateStrength (numb){
+  if (numb<=3) {
+    return evelStrength = 2;
+  } else if (numb<5) {
+    return evelStrength = 3;
+  } else {return evelStrength = 5;}
+};
+
 
 //función batalla
 function battle () {
-    const selectUser = selectElement.value;
+    const selectUser = parseInt(selectElement.value);
     random = getRandomNumber(5);
-    console.log (random);
-    if (parseInt(selectElement.value)===1) {
+    associateStrength (random);
+    if (selectUser<evelStrength) {
       render(resultElement,lose);
       sauronPoints++
-    }
-
-    if (parseInt(selectElement.value)===2 && random >3) {
-      render(resultElement,lose);
-      sauronPoints++
-      } 
-    if (parseInt(selectElement.value)===2 && random <=3) {
-      render(resultElement, tie);
-    } 
-
-   if (parseInt(selectElement.value)===3 && random <4) {
+    }else if (selectUser>evelStrength){
       render(resultElement, win);
       userPoints++
-    } 
-    if (parseInt(selectElement.value)===3 && random ===4) {
-      render(resultElement, tie);
-    }
-    if (parseInt(selectElement.value)===3 && random >4) {
-      render(resultElement,lose);
-      sauronPoints++
-    } 
- 
-   if (parseInt(selectElement.value)===4 && random <5) {
-    render(resultElement, win);
-    userPoints++
-    } 
-  if (parseInt(selectElement.value)===4 && random ===5) {
-    render(resultElement,lose);
-    sauronPoints++
-    } 
+    }else { render(resultElement, tie);}
+  };
 
-    if (parseInt(selectElement.value)===5 && random <5) {
-      render(resultElement, win);
-      userPoints++
-      } 
-    if (parseInt(selectElement.value)===5 && random ===5) {
-      render(resultElement, tie);
-      } 
-} 
-
-
-//saurons election
-
-function sauronElection (){
-  if (random === 1) {
-    render (sauronChooseElement, `Sauron elige: Sureños malos`);
-  } else if (random === 2) {
-    render (sauronChooseElement, `Sauron elige: Orcos`);
-  } else if (random === 3) {
-    render (sauronChooseElement, `Sauron elige: Goblins`);
-  } else if (random === 4) {
-    render (sauronChooseElement, `Sauron elige: Huargos`);
-  } else {
-    render (sauronChooseElement, `Sauron elige: Trolls`);
-  } 
-}
-
-//funciones puntuación
-function userScore (scoreU) {
-  userElement.innerHTML = scoreU;
-}
-function sauronScore (scorePc) {
-  computerElement.innerHTML = scorePc;
-}
+//función mostrar elección de saurons
+function displaySauronElection (randomnumb){
+  render (sauronChooseElement, `Sauron elige: ${saruonTeam.race[randomnumb-1]} 
+  con fuerza ${saruonTeam.strenght[randomnumb-1]}`);
+  };
 
 //función para no contar si no se elije jugador
-
 function dontCount (battle){
-  if (parseInt(selectElement.value)===0) {
+  if (selectElement.value==='default') {
     games--;
     render (sauronChooseElement, 'Selecciona raza');
-  }
-}
+    };
+  };
 
 //función manejadora
-
 function handleClick(event) {
-  event.preventDefault();
+    event.preventDefault();
     battle ();
     games++;
-    userScore (userPoints);
-    sauronScore (sauronPoints);
-    sauronElection ();
+    render(userElement,userPoints);
+    render(computerElement,sauronPoints);
+    displaySauronElection (random);
     dontCount ();
     End ();
-}
+    };
     
 //función evento
 btnElement.addEventListener('click', (handleClick));
@@ -143,51 +100,56 @@ btnElement.addEventListener('click', (handleClick));
 
 function addClass (element,classCss) {
   element.classList.add (classCss);
-}
+  };
+
 function removeClass (element,classCss) {
   element.classList.remove (classCss);
-}
+  };
 
 //función maquetación Derrota
-function faildisplay() {
+function displayfail() {
   removeClass (mainElement,'main');
   addClass (mainElement,'mainFail');
   render (endTextElement, '¡Derrota gana Sauron!')
-}
+  };
 
 //función maquetación Vencedor
-function winDisplay() {
+function displayWin() {
   removeClass (mainElement,'main');
   addClass (mainElement,'mainWin');
   removeClass (mainTitleElement,'mainTitle');
   addClass ( mainTitleElement,'mainTitleWin');
   addClass ( textGameElement,'transparent');
   render ( endTextElement, '¡Victoria! Sauron se retira.')
-}
+  };
 
 function End ( ) {
   if (games >= 10) {
     render(resultElement, 'Fin del juego');
     removeClass (btnResetElement,'hide')
     addClass (btnElement,'hide');
-    sauronChooseElement.innerHTML = '';
+    addClass (selectElement,'hide');
+    render(sauronChooseElement, '');
+    selectElement.value='default';
     if (userPoints<sauronPoints){
-      faildisplay();
-    }
-    if (userPoints>sauronPoints){
-      winDisplay();
-    }if (userPoints===sauronPoints) {
-      render(endTextElement, '¡Empate! Reune tus tropas.');
-    }
-  }
-}
+        displayfail();
+      } else if (userPoints>sauronPoints){
+        displayWin();
+      } else {
+       render(endTextElement, '¡Empate! Reune tus tropas.');
+      }
+    };
+  };
+
 function ringAnimation () {
   if (ringElement.classList.contains ('ring')) {
-    ringElement.classList.remove ('ring');
-    ringElement.classList.add ('ring2');
+    removeClass (ringElement,'ring')
+    addClass (ringElement,'ring2')
+  
   }else {
-    ringElement.classList.add ('ring');
-    ringElement.classList.remove('ring2');
+    addClass (ringElement,'ring')
+    removeClass (ringElement,'ring2')
+
   };  
 }
 
@@ -202,6 +164,7 @@ function resetStyles () {
   addClass (mainTitleElement,'mainTitle');
   removeClass (mainTitleElement,'mainTitleWin');
   removeClass (textGameElement,'transparent');
+  removeClass (selectElement,'hide');
 }
 
 function handleClickReset (event) {
@@ -210,9 +173,9 @@ function handleClickReset (event) {
   games = 0;
   userPoints = 0;
   sauronPoints = 0;
-  userScore (0);
-  sauronScore (0);
+  render(userElement,userPoints);
+  render(computerElement,sauronPoints);
   ringAnimation ();
 }
 
-btnResetElement.addEventListener('click', (handleClickReset));
+btnResetElement.addEventListener('click', handleClickReset);

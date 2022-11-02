@@ -5,10 +5,7 @@
     padding: 5px;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center;
-    justify-items: center; */
 }
-
 .lordRingsImg {
     width: 300px;
     display: inline-block;
@@ -22,8 +19,10 @@
     align-items: center;
     text-align: center;
     gap:30px;
-    color: white
+    color: white;
+    max-width: 700px;
 }
+    
 .mainFail {
     /*color | image | repeat | attachment | position x y*/
     background: black url(../images/fire.jpg) no-repeat scroll center;
@@ -37,6 +36,7 @@
     text-align: center;
     gap:30px;
     color: white;
+    max-width: 700px;
 }
 .mainWin {
     /*color | image | repeat | attachment | position x y*/
@@ -51,6 +51,7 @@
     text-align: center;
     gap:30px;
     color: white;
+    max-width: 700px;
 }
 .game {
     display:flex;
@@ -58,12 +59,11 @@
     justify-content: center;
     gap:30px;
 }
-.juego {
+.gametitle {
     position: absolute;
     top:20px;
     color:white;
-  /*   left: 10px; */
-   text-align: center;
+    text-align: center;
     text-transform: uppercase;
     font-size: 25px;
     font-weight: 800;
@@ -88,15 +88,16 @@
 .textIntro {
     font-size: 30px;
     line-height: 40px;
-    font-family: 'Italianno', cursive;
-    
+    font-family: 'Italianno', cursive; 
 }
 
 .textGame {
-    font-size: 25px;
+    font-size: 35px;
+    color:white;
     line-height: 40px;
     font-weight: 400;
     text-align: center;
+    font-family: 'Great Vibes', cursive;;
    
 
 }
@@ -190,4 +191,17 @@
 }
 .transparent {
     color:transparent;
+}
+
+@media all and (min-width:768px) {
+    .main {
+        padding: 50px 50px 10px;
+    }
+    .mainWin {
+        padding: 50px 50px 10px;
+        background: darkgoldenrod url(../images/winner.jpeg) no-repeat  0% 25%;
+        background-origin: content-box;
+        background-size:contain ;
+        gap:50px;
+    }
 }
